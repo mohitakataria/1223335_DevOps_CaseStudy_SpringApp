@@ -17,16 +17,16 @@ node {
     }
     
     stage('docker build'){
-        sh "docker build -t mohitakataria/1223335_DevOps_CaseStudy_SpringApp:latest ."
+        sh "docker build -t mohitakataria/1223335_devops_casestudy_springapp:latest ."
         withCredentials([usernamePassword(credentialsId: 'mohidoc', passwordVariable: 'dockerpwd', usernameVariable: 'dockeruser')]) { 
             sh "docker login -u ${dockeruser} -p ${dockerpwd}"
         }
     }
     stage('docker push'){
-        sh 'docker push mohitakataria/1223335_DevOps_CaseStudy_SpringApp:latest'
+        sh 'docker push mohitakataria/1223335_devops_casestudy_springapp:latest'
     }
     stage('docker run'){
-        sh 'docker run -p 8888:8080 -d 1223335_DevOps_CaseStudy_SpringApp:latest'
+        sh 'docker run -p 8888:8080 -d 1223335_devops_casestudy_springapp:latest'
     }
     stage('email'){
             emailext body: '''$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:

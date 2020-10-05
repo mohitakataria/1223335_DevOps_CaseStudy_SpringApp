@@ -6,10 +6,10 @@ VOLUME /tmp
 
 EXPOSE 8888
 
-ARG JAR_FILE=/target/cicd-pipeline-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=/target/springApp-0.0.1-SNAPSHOT.jar
 
-COPY ${JAR_FILE} springboot.jar
+COPY ${JAR_FILE} springApp.jar
 
 RUN echo "Creation of your docker image is in progress"
 
-ENTRYPOINT ["java", "-jar", "springboot.jar"]
+ENTRYPOINT ["java", "-jar", "springApp.jar"]
